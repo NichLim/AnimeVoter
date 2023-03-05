@@ -49,16 +49,16 @@ describe('application logic', () => {
                         'Steins;Gate': 2
                     })
                 }),
-                entries: List.of('Haikyuu!','Fullmetal Alchemist: Brotherhood','Bleach: Sennen Kessen-hen')
+                entries: List.of('Haikyuu!','Fullmetal Alchemist: Brotherhood', 'Bleach Sennen Kessen-hen')
             });
             const nextState = next(state);
             expect(nextState).to.equal(Map({
                 vote: Map({
-                    pair: List.of('Haikyuu!', "Fullmetal Alchemist: Brotherhood")
+                    pair: List.of('Haikyuu!','Fullmetal Alchemist: Brotherhood')
                 }),
-                entries: List.of('Bleach: Sennen Kessen-hen', 'Death Note')
-            }));
-        });
+                entries: List.of('Bleach Sennen Kessen-hen', 'Death Note')
+            }))
+        })
 
         it('puts both from tied vote back to entries', () =>{
             const state = Map({
@@ -71,6 +71,13 @@ describe('application logic', () => {
                 }),
                 entries: List.of('Haikyuu!','Fullmetal Alchemist: Brotherhood','Bleach: Sennen Kessen-hen')
             })
+            const nextState = next(state);
+            expect(nextState).to.equal(Map({
+                vote: Map({
+                    pair: List.of('Haikyuu!','Fullmetal Alchemist: Brotherhood')
+                }),
+                entries: List.of('Bleach: Sennen Kessen-hen', 'Death Note','Steins;Gate')
+            }));
         })
     });
     
