@@ -79,6 +79,23 @@ describe('application logic', () => {
                 entries: List.of('Bleach: Sennen Kessen-hen', 'Death Note','Steins;Gate')
             }));
         })
+        
+        it('marks winner when just one entry left', () =>{
+            const state = Map({
+                vote: Map({
+                    pair: List.of('Death Note', 'Steins;Gate'),
+                    tally: Map({
+                        'Steins;Gate': 4,
+                        'Death Note': 2
+                    })
+                }),
+                entries: List()
+            });
+            const nextState = next(state);
+            expect(nextState).to.equal(Map({
+                winner: 'Steins;Gate'
+            }));
+        });
     });
     
     describe('vote', () => {
