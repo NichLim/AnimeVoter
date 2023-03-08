@@ -8,7 +8,7 @@ export default function reducer(state = INITIAL_STATE, action){
         case 'NEXT':
             return next(state);
         case 'VOTE':
-            return vote(state, action.entry)
+            return state.update('vote', voteState => vote(voteState, action.entry));
     }
     return state;
     //this allows us to batch operations using a collection and getting the current state at the end
