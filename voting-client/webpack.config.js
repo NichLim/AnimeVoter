@@ -1,9 +1,11 @@
 module.exports = {
     entry: [
-        './src/index.js'
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        './src/index.jsx'
     ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
@@ -18,7 +20,8 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        static: './dist'
+        static: './dist',
+        hot: true
     },
     mode: 'development'
 };
