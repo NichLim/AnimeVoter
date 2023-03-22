@@ -4,7 +4,8 @@ import Voting from "./components/Voting";
 
 const pair = ["Death Note", "Steins;Gate"];
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
     <Voting pair={pair}/>,
     document.getElementById('app')
 );
