@@ -1,21 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Voting from "./components/Voting";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Results from "./components/Results";
+import {configureStore} from '@reduxjs/toolkit'
+import { Provider } from "react-redux";
+import reducer from "./reducer";
 import App from "./components/App";
+import { VotingContainer } from "./components/Voting";
+import { ResultsContainer } from "./components/Results";
+import io from 'socket.io-client'
+import './style.css';
 
-require('./style.css')
+const store = configureStore({reducer: reducer});
 
-const routes = <Routes>
-        <Route element={<App/>}>
-            <Route exact path="/" element={<Voting/>}/>
-            <Route exact path="results" element={<Results/>}/>
-            <Route path="*" element={<div>Path Not Found!</div>}/>
-        </Route>
-    </Routes>;
+// eslint-disable-next-line no-restricted-globals
+const socket = io(`${location.protocol}//${location.hostname}:8090`);
+socket.on('state', state => store.dispatch({type: 'SET_STATE', state}));
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
-    <Router>{routes}</Router>
+    <Provider store={store}>   
+        <Router>
+            <Routes>
+                <Route element={<App/>}>
+                    <Route path="/" element={<VotingContainer/>}/>
+                    <Route path="/results" element={<ResultsContainer/>} />
+                </Route>
+            </Routes>
+        </Router>
+    </Provider> 
 );

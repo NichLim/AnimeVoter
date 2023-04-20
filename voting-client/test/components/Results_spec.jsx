@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import {act} from "@testing-library/react"
 import {expect} from 'chai'
 import {List, Map} from 'immutable'
-import Results from "../../src/components/Results";
+import {Results} from "../../src/components/Results";
 import { findDOMNode } from "react-dom";
 
 describe("Results", () => {
