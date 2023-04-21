@@ -4,16 +4,15 @@ A versão em português está disponível logo após o texto original.
 
 After my last professional experience, I decided to invest my free time in refining my knowledge in Web Development, exposing myself to new technologies and development methodologies. As part of these studies, I started my first full-stack project: a website that displays pairs of Anime, allowing users to vote on them and, in the end, displays the winner. As I have been working on this project for some time, I decided to share a little of my experience with you.
 
-The idea is to use TDD (Test-Driven Development) as the main technique, so that the functionalities and visual elements have their own modular tests, certifying that, after changes in the source code, everything continues to work correctly. To better divide the ideas, I separated the GitHub repository into two parts: the part that has the server source code (voting-server) and the part that has the client specifications (voting-client).
+The idea is to use TDD (*Test-Driven Development*) as the main technique, so that the functionalities and visual elements have their own modular tests, certifying that, after changes in the source code, everything continues to work correctly. To better divide the ideas, I separated the GitHub repository into two parts: the part that has the server source code ([`voting-server`](./voting-server/)) and the part that has the client specifications ([`voting-client`](./voting-client/)).
 
-The Voting-Client has the code related to the UI, which seeks to be responsive and interactive. Some of the technologies used are React, Redux, Router, which take care of the visual components, state management, and application routing, respectively. Communication with the server is done through a WebSocket using the socket.io library.
+The `Voting-Client` has the code related to the UI, which seeks to be responsive and interactive. Some of the technologies used are React, Redux, Router, which take care of the visual components, state management, and application routing, respectively. Communication with the server is done through a WebSocket using the `socket.io` library.
 
-On the other hand, the Voting-Server has all the relevant information about the server, which uses express and deals with all the logic and state updates of the application.
+On the other hand, the `Voting-Server` has all the relevant information about the server, which uses `express` and deals with all the logic and state updates of the application.
 
-The project, in general, uses Redux to manage states, combined with Immutable.js which prevents changes from being made directly to the states in a destructive way. This means that any change generates a new state that is updated in the necessary modules.
+The project, in general, uses `Redux` to manage states, combined with `Immutable.js` which prevents changes from being made directly to the states in a destructive way. This means that any change generates a new state that is updated in the necessary modules.
 
 I am extremely satisfied with my progress so far, and even more excited about the next steps.
-
 
 --------------------------------------------------------------------------------------------------
 
